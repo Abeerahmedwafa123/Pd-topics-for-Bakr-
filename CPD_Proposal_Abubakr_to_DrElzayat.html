@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CPD Session Proposal — Abubakr to Dr. Mohamed Elzayat</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:       #0D1B2A;
+    --blue:       #1E5FA8;
+    --lightblue:  #D6E4F7;
+    --accent:     #E8A020;
+    --red:        #C0392B;
+    --red-light:  #FADBD8;
+    --orange:     #D35400;
+    --orange-light:#FDEBD0;
+    --yellow:     #9A7D0A;
+    --yellow-light:#FEF9E7;
+    --green:      #1A7A4A;
+    --green-light:#D5F0E3;
+    --gray:       #7F8C8D;
+    --lightgray:  #F4F6F8;
+    --dark:       #2C3E50;
+    --white:      #ffffff;
+    --border:     #E0E6ED;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: #F0F4F8;
+    color: var(--dark);
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  /* ── PRINT STYLES ── */
+  @media print {
+    body { background: white; }
+    .page { box-shadow: none; margin: 0; border-radius: 0; }
+    .no-print { display: none; }
+  }
+
+  /* ── LAYOUT ── */
+  .container {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 32px 20px 60px;
+  }
+
+  .page {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 40px rgba(13,27,42,0.10);
+    overflow: hidden;
+    margin-bottom: 32px;
+  }
+
+  /* ── HEADER ── */
+  .doc-header {
+    background: var(--navy);
+    padding: 48px 48px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .doc-header::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 280px; height: 280px;
+    border-radius: 50%;
+    background: rgba(30,95,168,0.18);
+  }
+  .doc-header::after {
+    content: '';
+    position: absolute;
+    bottom: 20px; left: -40px;
+    width: 160px; height: 160px;
+    border-radius: 50%;
+    background: rgba(232,160,32,0.08);
+  }
+  .header-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2.5px;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .header-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    font-weight: 900;
+    color: white;
+    line-height: 1.15;
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 1;
+  }
+  .header-subtitle {
+    font-size: 14px;
+    color: var(--lightblue);
+    margin-bottom: 36px;
+    font-weight: 300;
+    letter-spacing: 0.3px;
+  }
+  .header-bar {
+    background: var(--blue);
+    margin: 0 -48px;
+    padding: 14px 48px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+    z-index: 1;
+  }
+  .header-bar span {
+    font-size: 13px;
+    color: var(--lightblue);
+    font-weight: 300;
+  }
+  .header-bar strong { color: white; font-weight: 600; }
+  .header-bar .sep { color: rgba(255,255,255,0.3); margin: 0 4px; }
+
+  /* ── META BLOCK ── */
+  .meta-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border-bottom: 2px solid var(--lightblue);
+    background: var(--lightgray);
+  }
+  .meta-col { padding: 22px 32px; }
+  .meta-col:first-child { border-right: 1px solid var(--border); }
+  .meta-row { display: flex; gap: 10px; margin-bottom: 8px; align-items: baseline; }
+  .meta-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--gray);
+    min-width: 52px;
+    flex-shrink: 0;
+  }
+  .meta-value {
+    font-size: 13.5px;
+    color: var(--dark);
+    font-weight: 500;
+  }
+  .status-badge {
+    display: inline-block;
+    background: var(--orange-light);
+    color: var(--orange);
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 10px;
+    border-radius: 20px;
+    letter-spacing: 0.5px;
+  }
+
+  /* ── SECTION HEADINGS ── */
+  .section-wrap { padding: 40px 48px; }
+  .section-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-heading::after {
+    content: '';
+    flex: 1;
+    height: 2px;
+    background: linear-gradient(90deg, var(--blue), transparent);
+    border-radius: 2px;
+  }
+  .section-intro {
+    font-size: 14px;
+    color: var(--gray);
+    line-height: 1.75;
+    margin-bottom: 28px;
+    max-width: 680px;
+  }
+
+  /* ── TREND CARDS ── */
+  .trends-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-bottom: 14px;
+  }
+  .trend-card {
+    border-radius: 10px;
+    padding: 18px;
+    position: relative;
+    overflow: hidden;
+    border-top: 3px solid transparent;
+  }
+  .trend-card.red   { background: var(--red-light);    border-color: var(--red); }
+  .trend-card.orange{ background: var(--orange-light);  border-color: var(--orange); }
+  .trend-card.blue  { background: var(--lightblue);     border-color: var(--blue); }
+  .trend-card.yellow{ background: var(--yellow-light);  border-color: var(--yellow); }
+  .trend-card.green { background: var(--green-light);   border-color: var(--green); }
+
+  .trend-emoji { font-size: 22px; margin-bottom: 8px; display: block; }
+  .trend-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 6px;
+    line-height: 1.35;
+  }
+  .trend-body {
+    font-size: 12px;
+    color: var(--dark);
+    line-height: 1.6;
+    opacity: 0.85;
+  }
+
+  /* ── SESSION CARDS ── */
+  .sessions-list { display: flex; flex-direction: column; gap: 12px; }
+
+  .session-card {
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+    display: flex;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .session-card:hover {
+    box-shadow: 0 6px 24px rgba(13,27,42,0.10);
+    transform: translateY(-1px);
+  }
+  .session-card.approved {
+    border-color: var(--green);
+    background: #F0FAF5;
+  }
+
+  .session-num {
+    width: 52px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 900;
+    color: white;
+  }
+  .session-num.red    { background: var(--red); }
+  .session-num.orange { background: var(--orange); }
+  .session-num.yellow { background: var(--yellow); }
+
+  .session-body { padding: 18px 22px; flex: 1; }
+  .session-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 4px;
+  }
+  .session-title {
+    font-size: 14.5px;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.4;
+    flex: 1;
+  }
+  .approved-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: var(--green-light);
+    color: var(--green);
+    font-size: 10.5px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 20px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    letter-spacing: 0.3px;
+  }
+  .priority-tag {
+    font-size: 11px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .priority-tag.red    { color: var(--red); }
+  .priority-tag.orange { color: var(--orange); }
+  .priority-tag.yellow { color: var(--yellow); }
+
+  .session-desc {
+    font-size: 13px;
+    color: #4A5568;
+    line-height: 1.7;
+  }
+
+  /* ── PRIORITY LEGEND ── */
+  .legend {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 12px;
+    font-weight: 500;
+  }
+  .legend-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* ── CLOSING ── */
+  .closing-body {
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--dark);
+    margin-bottom: 36px;
+  }
+  .sig-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    margin-top: 16px;
+  }
+  .sig-block { border-top: 2px solid var(--navy); padding-top: 14px; }
+  .sig-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 3px;
+  }
+  .sig-role { font-size: 12.5px; color: var(--gray); margin-bottom: 2px; }
+  .sig-date { font-size: 12px; color: var(--gray); }
+  .sig-line {
+    margin-top: 22px;
+    border-top: 1px dashed var(--border);
+    padding-top: 8px;
+    font-size: 11px;
+    color: var(--gray);
+    font-style: italic;
+  }
+
+  /* ── FOOTER ── */
+  .doc-footer {
+    background: var(--navy);
+    padding: 16px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .footer-left { font-size: 11px; color: rgba(255,255,255,0.45); }
+  .footer-right {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--accent);
+    letter-spacing: 1px;
+  }
+
+  /* ── DIVIDER ── */
+  .divider {
+    height: 1px;
+    background: var(--border);
+    margin: 0 48px;
+  }
+
+  /* ── PRINT BUTTON ── */
+  .no-print {
+    text-align: center;
+    margin-bottom: 24px;
+  }
+  .print-btn {
+    background: var(--navy);
+    color: white;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    letter-spacing: 0.3px;
+    transition: background 0.2s;
+  }
+  .print-btn:hover { background: var(--blue); }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .session-card {
+    animation: fadeUp 0.4s ease both;
+  }
+  .session-card:nth-child(1)  { animation-delay: 0.05s; }
+  .session-card:nth-child(2)  { animation-delay: 0.08s; }
+  .session-card:nth-child(3)  { animation-delay: 0.11s; }
+  .session-card:nth-child(4)  { animation-delay: 0.14s; }
+  .session-card:nth-child(5)  { animation-delay: 0.17s; }
+  .session-card:nth-child(6)  { animation-delay: 0.20s; }
+  .session-card:nth-child(7)  { animation-delay: 0.23s; }
+  .session-card:nth-child(8)  { animation-delay: 0.26s; }
+  .session-card:nth-child(9)  { animation-delay: 0.29s; }
+  .session-card:nth-child(10) { animation-delay: 0.32s; }
+  .session-card:nth-child(11) { animation-delay: 0.35s; }
+  .session-card:nth-child(12) { animation-delay: 0.38s; }
+  .session-card:nth-child(13) { animation-delay: 0.41s; }
+  .session-card:nth-child(14) { animation-delay: 0.44s; }
+  .session-card:nth-child(15) { animation-delay: 0.47s; }
+  .session-card:nth-child(16) { animation-delay: 0.50s; }
+  .session-card:nth-child(17) { animation-delay: 0.53s; }
+  .session-card:nth-child(18) { animation-delay: 0.56s; }
+  .session-card:nth-child(19) { animation-delay: 0.59s; }
+  .session-card:nth-child(20) { animation-delay: 0.62s; }
+
+  /* ── BLOCK LABELS ── */
+  .block-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 24px 0 10px;
+    font-family: 'DM Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gray);
+  }
+  .block-label::before {
+    content: '';
+    width: 28px; height: 2px;
+    background: currentColor;
+    border-radius: 2px;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Print button -->
+  <div class="no-print">
+    <button class="print-btn" onclick="window.print()">🖨️ Print / Save as PDF</button>
+  </div>
+
+  <div class="page">
+
+    <!-- ══ HEADER ══ -->
+    <div class="doc-header">
+      <div class="header-eyebrow">Continuing Professional Development · Monglish · 2025/2026</div>
+      <div class="header-title">CPD Session<br>Proposal</div>
+      <div class="header-subtitle">Teacher Observations Cycle — Identified Needs & Recommended Interventions</div>
+      <div class="header-bar">
+        <span>To: <strong>Dr. Mohamed Elzayat</strong> — L&amp;D Unit Manager</span>
+        <span class="sep">|</span>
+        <span>From: <strong>Abubakr</strong> — Quality Specialist</span>
+        <span class="sep">|</span>
+        <span>Date: <strong>9 May 2026</strong></span>
+        <span class="sep">|</span>
+        <span>Ref: <strong>CPD-2025/26-001</strong></span>
+      </div>
+    </div>
+
+    <!-- ══ META ══ -->
+    <div class="meta-block">
+      <div class="meta-col">
+        <div class="meta-row">
+          <span class="meta-label">To</span>
+          <span class="meta-value">Dr. Mohamed Elzayat — L&amp;D Unit Manager</span>
+        </div>
+        <div class="meta-row">
+          <span class="meta-label">From</span>
+          <span class="meta-value">Abubakr — Quality Specialist</span>
+        </div>
+        <div class="meta-row">
+          <span class="meta-label">Subject</span>
+          <span class="meta-value">CPD Session Proposals — Observation Cycle 2025/2026</span>
+        </div>
+      </div>
+      <div class="meta-col">
+        <div class="meta-row">
+          <span class="meta-label">Date</span>
+          <span class="meta-value">9 May 2026</span>
+        </div>
+        <div class="meta-row">
+          <span class="meta-label">Ref</span>
+          <span class="meta-value">CPD-2025/26-001</span>
+        </div>
+        <div class="meta-row">
+          <span class="meta-label">Status</span>
+          <span class="meta-value"><span class="status-badge">⏳ Pending Approval</span></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ TRENDS ══ -->
+    <div class="section-wrap">
+      <div class="section-heading">Observed Trends &amp; Key Challenges</div>
+      <p class="section-intro">
+        The following patterns were identified through systematic observation of 25 teachers across Foundation, Juniors, Teens, Adults, and LG Writing classes between November 2025 and May 2026 — using both a CELTA-aligned grading rubric (3.00–4.00 scale) and a structured 12-indicator performance form scored out of 48. These trends represent the most persistent and impactful issues requiring structured CPD intervention.
+      </p>
+
+      <div class="trends-grid">
+        <div class="trend-card red">
+          <span class="trend-emoji">📵</span>
+          <div class="trend-title">Unprofessional Conduct During Sessions</div>
+          <div class="trend-body">Phone use mid-lesson observed in 5+ teachers. Directly undermines authority, models poor behaviour, and signals disengagement to students.</div>
+        </div>
+        <div class="trend-card red">
+          <span class="trend-emoji">🔇</span>
+          <div class="trend-title">Weak Classroom Management Online</div>
+          <div class="trend-body">Cameras off, students lying in bed, Arabic use unchecked, noise unmanaged. Hamas Hamza and Alaa Ali both scored 1/4 on this indicator.</div>
+        </div>
+        <div class="trend-card orange">
+          <span class="trend-emoji">❓</span>
+          <div class="trend-title">ICQs Absent or Ineffective</div>
+          <div class="trend-body">7+ teachers give instructions without checking understanding. Students begin tasks confused, causing repeated re-explanation and lost time.</div>
+        </div>
+      </div>
+      <div class="trends-grid">
+        <div class="trend-card orange">
+          <span class="trend-emoji">💬</span>
+          <div class="trend-title">Excessive Teacher Talking Time</div>
+          <div class="trend-body">Teachers echo students, over-explain, and complete tasks on students' behalf — significantly reducing student output time.</div>
+        </div>
+        <div class="trend-card yellow">
+          <span class="trend-emoji">⚡</span>
+          <div class="trend-title">Low Energy &amp; Weak Presence on Camera</div>
+          <div class="trend-body">Monotone delivery flagged for multiple teachers, particularly in Foundation and young learner classes where teacher energy drives engagement.</div>
+        </div>
+        <div class="trend-card blue">
+          <span class="trend-emoji">🔵</span>
+          <div class="trend-title">Breakout Rooms Used Without Purpose</div>
+          <div class="trend-body">BOR used across most classes but without structured tasks, monitoring, or post-task feedback — functioning as filler rather than learning.</div>
+        </div>
+      </div>
+      <div class="trends-grid">
+        <div class="trend-card blue">
+          <span class="trend-emoji">🔚</span>
+          <div class="trend-title">Recap &amp; Consolidation Rushed or Missing</div>
+          <div class="trend-body">Lesson closure is the most consistently underperforming stage. Ahmed Hussam had no recap at all; multiple others scored below Good.</div>
+        </div>
+        <div class="trend-card yellow">
+          <span class="trend-emoji">🗣️</span>
+          <div class="trend-title">Teacher Language Inaccuracies</div>
+          <div class="trend-body">Pronunciation errors, wrong grammar forms, and incorrect embedded questions modelled by 5+ teachers in the CELTA observation dataset.</div>
+        </div>
+        <div class="trend-card green">
+          <span class="trend-emoji">📋</span>
+          <div class="trend-title">Homework Not Clearly Administered</div>
+          <div class="trend-body">Several teachers skip homework or explain only one of two required tasks. Mona Salem scored 1/4; Hamas Hamza and Alaa Ali were unobserved.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- ══ SESSIONS ══ -->
+    <div class="section-wrap">
+      <div class="section-heading">Proposed CPD Session Titles &amp; Outlines</div>
+      <p class="section-intro">
+        20 sessions are proposed based on the identified observation trends. Sessions 1–4 have already been approved by Dr. Mohamed Elzayat and are marked accordingly. Sessions 5–20 are submitted for approval to complete the CPD cycle for the 2025/2026 academic year.
+      </p>
+
+      <div class="legend">
+        <div class="legend-item"><div class="legend-dot" style="background:var(--red)"></div> 🔴 Critical — Address immediately</div>
+        <div class="legend-item"><div class="legend-dot" style="background:var(--orange)"></div> 🟠 Serious — Address in first month</div>
+        <div class="legend-item"><div class="legend-dot" style="background:var(--yellow)"></div> 🟡 Important — Address in first two months</div>
+        <div class="legend-item"><div class="legend-dot" style="background:var(--green)"></div> ✔ Previously approved</div>
+      </div>
+
+      <div class="block-label">Block 1 — Critical · Sessions 1–7</div>
+
+      <div class="sessions-list">
+
+        <!-- SESSION 1 -->
+        <div class="session-card approved">
+          <div class="session-num red">1</div>
+          <div class="session-body">
+            <div class="session-top">
+              <div class="session-title">Stop Telling, Start Eliciting — Reducing TTT &amp; Maximising Student Output</div>
+              <span class="approved-badge">✔ Previously Approved</span>
+            </div>
+            <div class="priority-tag red">🔴 Critical</div>
+            <div class="session-desc">This session addresses one of the most pervasive issues across the observation cycle: teachers dominating lesson time through echoing, over-explaining, and completing tasks on students' behalf. Participants will analyse recordings of high-TTT lessons, identify unnecessary teacher intervention, and practise elicitation ladders, wait-time techniques, and student-nominating strategies. Each teacher will leave with a personalised TTT reduction plan for their next lesson.</div>
+          </div>
+        </div>
+
+        <!-- SESSION 2 -->
+        <div class="session-card approved">
+          <div class="session-num red">2</div>
+          <div class="session-body">
+            <div class="session-top">
+              <div class="session-title">Pronunciation in the Classroom — Modelling, Drilling &amp; Correction</div>
+              <span class="approved-badge">✔ Previously Approved</span>
+            </div>
+            <div class="priority-tag red">🔴 Critical</div>
+            <div class="session-desc">With 5+ teachers flagged for mispronouncing target vocabulary and failing to correct student errors, this session focuses on developing teachers' phonological awareness and drilling techniques. Topics include phoneme isolation, word stress, connected speech, choral and individual drilling, and how to correct pronunciation without interrupting fluency. Teachers will also practise the MPF framework (Meaning, Form, Pronunciation) for presenting vocabulary accurately.</div>
+          </div>
+        </div>
+
+        <!-- SESSION 3 -->
+        <div class="session-card approved">
+          <div class="session-num red">3</div>
+          <div class="session-body">
+            <div class="session-top">
+              <div class="session-title">Lesson Closure &amp; Language Accuracy — Recap, Grammar Clarification &amp; Embedded Questions</div>
+              <span class="approved-badge">✔ Previously Approved</span>
+            </div>
+            <div class="priority-tag red">🔴 Critical</div>
+            <div class="session-desc">Recap stages are consistently rushed or missing, and several teachers produce inaccurate grammar models. This session covers: how to design a purposeful 5–10 minute lesson closure, student-led recap strategies, exit ticket techniques, and a focused grammar accuracy workshop on structures most commonly misused — including reported speech, embedded questions, and conditional forms.</div>
+          </div>
+        </div>
+
+        <!-- SESSION 4 -->
+        <div class="session-card approved">
+          <div class="session-num red">4</div>
+          <div class="session-body">
+            <div class="session-top">
+              <div class="session-title">Living the Immerse — Bringing the Monglish Philosophy to Life in Your Classroom</div>
+              <span class="approved-badge">✔ Previously Approved</span>
+            </div>
+            <div class="priority-tag red">🔴 Critical</div>
+            <div class="session-desc">This session reconnects teachers with the Monglish institutional philosophy and its practical classroom implications. It addresses Arabic use, camera and background policy enforcement, the spirit behind the Dojo points system, and what 'immersive English' genuinely looks like online. Teachers leave with concrete strategies for upholding the Monglish approach consistently rather than treating policies as optional.</div>
+          </div>
+        </div>
+
+        <!-- SESSION 5 -->
+        <div class="session-card">
+          <div class="session-num red">5</div>
+          <div class="session-body">
+            <div class="session-top">
+              <div class="session-title">Professionalism in the Online Classroom</div>
+            </div>
+            <div class="priority-tag red">🔴 Critical</div>
+            <div class="session-desc">Mobile phone use during sessions was observed in over five teachers. This session covers the full scope of professional conduct in an online environment: phone use, consistent camera presence, punctuality, appropriate dress code, and what 'being present' means when teaching remotely. Scenarios reflect on how unprofessional behaviours impact student trust, engagement, and institutional reputation. Teachers will co-create a Professional Conduct Agreement for their classrooms.</div>
+          </div>
+        </div>
+
+        <!-- SESSION 6 -->
+        <div class="session-card">
+          <div class="session-num red">6</div>
+          <div class="session-body">
+            <div class="session-top">
+              <div class="session-title">Classroom Management Strategies for the Online Environment</div>
+            </div>
+            <div class="priority-tag red">🔴 Critical</div>
+            <div class="session-desc">Managing a virtual classroom requires a different toolkit to in-person teaching. This session targets managing cameras-off students, noise and background disruptions, Arabic use during English tasks, students joining late or in inappropriate settings, and turn-taking in whole-class discussions. Teachers role-play challenging scenarios and build a classroom management toolkit tailored to their specific class level and type.</div>
+          </div>
+        </div>
+
+        <!-- SESSION 7 -->
+        <div class="session-card">
+          <div class="session-num red">7</div>
+          <div class="session-body">
+            <div class="session-top">
+              <div class="session-title">ICQs That Actually Work — Checking Understanding Before Tasks Begin</div>
+            </div>
+            <div class="priority-tag red">🔴 Critical</div>
+            <div class="session-desc">ICQs are absent or poorly executed in 7+ observed teachers. This workshop distinguishes effective from ineffective ICQs, showing why questions like "Do you understand?" are useless. Teachers will write and deliver ICQs for real Monglish tasks from their own materials, practise staging complex multi-step instructions, and peer-review each other's ICQ design. A reference card of ICQ templates will be produced for classroom use.</div>
+          </div>
+        </div>
+
+        <div class="block-label">Block 2 — Serious · Sessions 8–13</div>
+
+        <!-- SESSION 8 -->
+        <div class="session-card">
+          <div class="session-num orange">8</div>
+          <div class="session-body">
+            <div class="session-top">
+              <div class="session-title">Designing Purposeful Breakout Rooms</div>
+            </div>
+            <div class="priority-tag orange">🟠 Serious</div>
+            <div class="session-desc">This session moves beyond 'send them to breakout' — covering task design with clear outcomes, how to monitor multiple rooms effectively, timing strategies, and how to conduct meaningful whole-class feedback after BOR activities. Each teacher will redesign an existing BOR activity from their upcoming lessons using the frameworks introduced, and trial it before the next session.</div>
+          </div>
+        </div>
+
+        <!-- SESSION 9 -->
+        <div class="session-card">
+          <div class="session-num orange">9</div>
+          <div class="session-body">
+            <div class="session-top">
+              <div class="session-title">Energy, Presence &amp; Voice — Teaching with Impact in an Online Classroom</div>
+            </div>
+            <div class="priority-tag orange">🟠 Serious</div>
+            <div class="session-desc">Low energy and flat delivery were flagged for multiple teachers, particularly in Foundation and young learner classes. This session is practical and experiential: teachers work on voice modulation, pacing and pausing, facial expressions on camera, physical energy management across a 90-minute session, and sustaining enthusiasm in repetitive or revision-heavy lessons. Video examples and peer feedback will be used throughout.</div>
+          </div>
+        </div>
+
+        <!-- SESSION 10 -->
+        <div class="session-card">
+          <div class="session-num orange">10</div>
+          <div class="session-body">
+            <div class="session-top">
+              <div class="session-title">Giving Feedback That Teaches — Error Correction Techniques</div>
+            </div>
+            <div class="priority-tag orange">🟠 Serious</div>
+            <div class="session-desc">Observation data shows feedback is either absent, purely positive, or teacher-dominated. This session introduces a range of error correction strategies: recasting, prompting, metalinguistic clues, and explicit correction. Teachers practise identifying the right moment to correct, how to involve peers in correction, and how to use errors as teaching opportunities. The session also covers written feedback on student work in LG Writing classes.</div>
+          </div>
+        </div>
+
+        <!-- SESSION 11 -->
+        <div class="session-card">
+          <div class="session-num orange">11</div>
+          <div class="session-body">
+            <div class="session-top">
+              <div class="session-title">Writing Clear Instructions — The Foundation of Every Successful Task</div>
+            </div>
+            <div class="priority-tag orange">🟠 Serious</div>
+            <div class="session-desc">Many task failures traced in the observation data originate not in the task itself but in unclear or cognitively overloaded instructions. This workshop focuses on simplifying language for level, staging multi-step tasks, using models and demonstrations, and knowing when written instructions support or replace verbal ones. Teachers rewrite real observed instruction sequences and test them with peers.</div>
+          </div>
+        </div>
+
+        <!-- SESSION 12 -->
+        <div class="session-card">
+          <div class="session-num orange">12</div>
+          <div class="session-body">
+            <div class="session-top">
+              <div class="session-title">Lesson Staging &amp; Timing — Pacing a Lesson That Works</div>
+            </div>
+            <div class="priority-tag orange">🟠 Serious</div>
+            <div class="session-desc">Across both observation datasets, production and recap stages are consistently cut short because earlier stages overrun. This session covers realistic time allocation, managing overrunning tasks without losing the lesson arc, protecting freer practice and consolidation stages, and making meaningful micro-adjustments mid-lesson. Teachers will time-map their upcoming lesson plans and discuss potential pinch-points in pairs.</div>
+          </div>
+        </div>
+
+        <!-- SESSION 13 -->
+        <div class="session-card">
+          <div class="session-num orange">13</div>
+          <div class="session-body">
+            <div class="session-top">
+              <div class="session-title">CCQs — Checking Concept Understanding, Not Just Instructions</div>
+            </div>
+            <div class="priority-tag orange">🟠 Serious</div>
+            <div class="session-desc">While ICQs check that students understand what to do, Concept Checking Questions verify they understand the meaning behind language. Multiple teachers use CCQs poorly or not at all, leading to students practising language they have not understood. This session defines the ICQ/CCQ distinction, provides frameworks for designing CCQs for grammar and vocabulary, and gives teachers extended practice with real Monglish lesson content.</div>
+          </div>
+        </div>
+
+        <div class="block-label">Block 3 — Important · Sessions 14–20</div>
+
+        <!-- SESSION 14 -->
+        <div class="session-card">
+          <div class="session-num yellow">14</div>
+          <div class="session-body">
+            <div class="session-top">
+              <div class="session-title">MPF in Practice — Teaching Vocabulary the Right Way</div>
+            </div>
+            <div class="priority-tag yellow">🟡 Important</div>
+            <div class="session-desc">Several teachers present vocabulary incidentally without addressing Meaning, Form, and Pronunciation systematically. This results in students practising words they cannot spell, stress correctly, or use in the right grammatical pattern. This session works through the full MPF framework using real Monglish vocabulary sets, shows teachers how to sequence a vocabulary presentation stage efficiently, and addresses common teacher errors in vocabulary instruction.</div>
+          </div>
+        </div>
+
+        <!-- SESSION 15 -->
+        <div class="session-card">
+          <div class="session-num yellow">15</div>
+          <div class="session-body">
+            <div class="session-top">
+              <div class="session-title">Homework Administration — Making the Most of the Final 5 Minutes</div>
+            </div>
+            <div class="priority-tag yellow">🟡 Important</div>
+            <div class="session-desc">Homework is either skipped, mentioned without explanation, or only one of the two required tasks (writing and speaking) is addressed. This session covers how to introduce and explain both tasks clearly within the final five minutes, how to check student understanding of homework expectations using ICQs, and how to link homework meaningfully to lesson content so students understand its purpose.</div>
+          </div>
+        </div>
+
+        <!-- SESSION 16 -->
+        <div class="session-card">
+          <div class="session-num yellow">16</div>
+          <div class="session-body">
+            <div class="session-top">
+              <div class="session-title">Student Inclusion &amp; Differentiation in Mixed-Ability Online Classes</div>
+            </div>
+            <div class="priority-tag yellow">🟡 Important</div>
+            <div class="session-desc">Several classes contain learners at significantly different levels, with stronger students dominating and weaker ones going unsupported. This session covers differentiation strategies for an online context: scaffolding tasks by level, strategic nomination, extension activities for fast finishers, supporting struggling students within a whole-class structure, and identifying when a student needs to be flagged for academic support outside the classroom.</div>
+          </div>
+        </div>
+
+        <!-- SESSION 17 -->
+        <div class="session-card">
+          <div class="session-num yellow">17</div>
+          <div class="session-body">
+            <div class="session-top">
+              <div class="session-title">Making Activities Count — From Fun to Learning</div>
+            </div>
+            <div class="priority-tag yellow">🟡 Important</div>
+            <div class="session-desc">Games and interactive activities are widely used but frequently left unexploited: the activity ends, points are tallied, and learning stops there. This session teaches teachers how to design feedback loops into every activity, use game results diagnostically, draw language out of game contexts, and debrief activities in a way that consolidates rather than just concludes. Teachers will analyse existing Monglish games and redesign their follow-up stages.</div>
+          </div>
+        </div>
+
+        <!-- SESSION 18 -->
+        <div class="session-card">
+          <div class="session-num yellow">18</div>
+          <div class="session-body">
+            <div class="session-top">
+              <div class="session-title">Setting &amp; Enforcing Classroom Rules Consistently</div>
+            </div>
+            <div class="priority-tag yellow">🟡 Important</div>
+            <div class="session-desc">Background compliance, camera policy, Arabic use, and student posture are near-universally enforced inconsistently. This session focuses on how to introduce classroom rules clearly at the start of a course, reinforce them session by session without confrontation, handle non-compliance professionally, and involve students in co-creating expectations so they feel ownership rather than imposition. Role-play scenarios will be used throughout.</div>
+          </div>
+        </div>
+
+        <!-- SESSION 19 -->
+        <div class="session-card">
+          <div class="session-num yellow">19</div>
+          <div class="session-body">
+            <div class="session-top">
+              <div class="session-title">Understanding &amp; Using the Observation Rubric — Knowing What You Are Being Assessed On</div>
+            </div>
+            <div class="priority-tag yellow">🟡 Important</div>
+            <div class="session-desc">Many teachers receive observation feedback without a clear understanding of the 12-indicator rubric used to assess them or how scores are derived. This session demystifies the entire assessment framework: what each indicator means, what 'Exemplary' versus 'Good' versus 'Satisfactory' looks like in practice, and how teachers can use the rubric proactively as a self-assessment tool between observations. Teachers will score sample lesson recordings, discuss discrepancies, and leave with a personal development checklist mapped to their own most recent observation report.</div>
+          </div>
+        </div>
+
+        <!-- SESSION 20 -->
+        <div class="session-card">
+          <div class="session-num yellow">20</div>
+          <div class="session-body">
+            <div class="session-top">
+              <div class="session-title">Building a Positive Online Classroom Culture from Session One</div>
+            </div>
+            <div class="priority-tag yellow">🟡 Important</div>
+            <div class="session-desc">The challenges observed mid-course — disengaged students, cameras off, Arabic use, poor posture, late arrivals — are often rooted in how the first session was conducted. This session focuses on course setup: how to introduce yourself and establish authority warmly, how to co-create classroom agreements with students from day one, how to set camera and background expectations clearly and positively, and how to build routines in the first three sessions that make classroom management easier for the rest of the course. Role-play and planning templates will be used throughout.</div>
+          </div>
+        </div>
+
+      </div><!-- end sessions-list -->
+    </div><!-- end section-wrap -->
+
+    <div class="divider"></div>
+
+    <!-- ══ CLOSING ══ -->
+    <div class="section-wrap">
+      <div class="section-heading">Closing Note</div>
+      <div class="closing-body">
+        The 20 sessions proposed in this document represent a complete CPD response to the patterns identified in the 2025/2026 observation cycle. Sessions 1–4, previously approved by Dr. Mohamed Elzayat, are already scheduled and will serve as the foundation of the programme. Sessions 5–20 are designed to complement and extend that foundation, addressing the full range of observed needs across Foundation, Juniors, Teens, Adults, and LG Writing teachers.
+        <br><br>
+        It is recommended that sessions be delivered in priority order — grouping 🔴 Critical sessions in Block 1 (Weeks 1–4), 🟠 Serious sessions in Block 2 (Weeks 5–9), and 🟡 Important sessions in Block 3 (Weeks 10–14) — allowing for reflection and re-observation between blocks to measure impact.
+        <br><br>
+        I remain available to discuss delivery format, scheduling, and any amendments required. I look forward to your feedback and approval.
+      </div>
+
+      <div class="sig-grid">
+        <div class="sig-block">
+          <div class="sig-name">Abubakr</div>
+          <div class="sig-role">Quality Specialist</div>
+          <div class="sig-date">Date: 9 May 2026</div>
+        </div>
+        <div class="sig-block">
+          <div class="sig-name">Dr. Mohamed Elzayat</div>
+          <div class="sig-role">L&amp;D Unit Manager</div>
+          <div class="sig-line">Signature: ___________________________</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ FOOTER ══ -->
+    <div class="doc-footer">
+      <div class="footer-left">Monglish International Academy · CPD Programme 2025/2026 · Confidential</div>
+      <div class="footer-right">REF: CPD-2025/26-001</div>
+    </div>
+
+  </div><!-- end page -->
+</div><!-- end container -->
+
+</body>
+</html>
